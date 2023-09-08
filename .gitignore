@@ -13,3 +13,10 @@ smoke-ts-sink*.*
 build/tmp
 build/build_dir
 build/build_*
+
+# Bazel
+/bazel-*
+/external
+/.cache
+/compile_commands.json
+user.bazelrc
