@@ -1,0 +1,39 @@
+load("@rules_cc//cc:defs.bzl", "cc_test")
+
+_TESTS = [
+    "basic-smoke-test",
+    "basic-smoke-test2",
+    "basic-smoke-test3",
+    "basic-smoke-test4",
+]
+
+cc_test(
+    name = "basic-smoke-test",
+    srcs = ["basic-smoke-test.cpp"],
+    deps = [
+        "@boost.test",
+    ],
+)
+cc_test(
+    name = "basic-smoke-test2",
+    srcs = ["basic-smoke-test2.cpp"],
+    deps = [
+        "@boost.test",
+    ],
+)
+
+# cc_test(
+#     name = "basic-smoke-test3",
+#     srcs = ["basic-smoke-test3.cpp"],
+#     deps = [
+#         "@boost.test",
+#     ],
+# )
+
+# cc_test(
+#     name = "basic-smoke-test4",
+#     srcs = ["basic-smoke-test4.cpp"],
+#     deps = [
+#         "@boost.test",
+#     ],
+# )

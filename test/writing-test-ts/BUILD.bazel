@@ -1,0 +1,37 @@
+load("@rules_cc//cc:defs.bzl", "cc_test")
+
+_TESTS = {
+    "assertion-construction-test": [],
+    "boost_check_equal-str-test": [],
+    "collection-comparison-test": [],
+    "dont_print_log_value-test": [],
+    "fp-comparisons-test": [],
+    "fp-multiprecision-comparison-test": [
+        "@boost.multiprecision",
+    ],
+    "fp-no-comparison-for-incomplete-types-test": [],
+    "fp-relational-operator": [],
+    "nullptr-support-test": [],
+    "output_test_stream-test": [],
+    "test-dataset-over-tuples": [],
+    # "test-fixture-detect-setup-teardown11": [],
+    "test-fixture-detect-setup-teardown": [],
+    # "test-timeout-fail": [],
+    # "test-timeout-suite-fail": [],
+    "test-timeout-suite": [],
+    "test-timeout": [],
+    "test-with-precondition": [],
+    # "test_tools-test": [],
+    "tools-debuggable-test": [],
+    "tools-under-debugger-test": [],
+    "user-defined-types-logging-customization-points": [],
+    "windows-headers-test": [],
+}
+
+[cc_test(
+    name = test,
+    srcs = ["{}.cpp".format(test)],
+    deps = _TESTS[test] + [
+        "@boost.test",
+    ],
+) for test in _TESTS]
