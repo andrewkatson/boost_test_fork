@@ -32,6 +32,6 @@ _TESTS = {
     name = test,
     srcs = ["{}.cpp".format(test)],
     deps = _TESTS[test] + [
-        "@boost.test",
+        "@boost.test//:unit_test_main",
     ],
 ) for test in _TESTS]

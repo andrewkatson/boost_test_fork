@@ -9,9 +9,14 @@ cc_library(
         "include/**/*.h",
         "include/**/*.ipp",
     ]),
-    srcs = glob([
-        "src/*.cpp",
-    ]),
+    srcs = glob(
+        ["src/*.cpp"],
+        exclude = [
+            "src/cpp_main.cpp",
+            "src/test_main.cpp",
+            "src/unit_test_main.cpp",
+        ],
+    ),
     defines = [
         "BOOST_TEST_NO_LIB",
     ],
@@ -36,4 +41,22 @@ cc_library(
         "@boost.type_traits",
         "@boost.utility",
     ],
+)
+
+cc_library(
+    name = "cpp_main",
+    deps = [":boost.test"],
+    srcs = ["src/cpp_main.cpp"],
+)
+
+cc_library(
+    name = "test_main",
+    deps = [":boost.test"],
+    srcs = ["src/test_main.cpp"],
+)
+
+cc_library(
+    name = "unit_test_main",
+    deps = [":boost.test"],
+    srcs = ["src/unit_test_main.cpp"],
 )
