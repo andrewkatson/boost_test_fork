@@ -59,4 +59,9 @@ cc_library(
     name = "unit_test_main",
     deps = [":boost.test"],
     srcs = ["src/unit_test_main.cpp"],
+    linkstatic = select({
+        "@platforms//os:windows": False,
+        "@platforms//os:macos": False,
+        "//conditions:default": True,
+    }),
 )
